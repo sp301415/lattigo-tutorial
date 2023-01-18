@@ -23,7 +23,7 @@ func main() {
 
 	// Evaluation Key들을 만듭니다.
 	// Relinearization Key와 Rotation Key가 있습니다.
-	rlk := keygen.GenRelinearizationKey(sk, 2)                            // s^2 -> s이므로, maxDegree = 2
+	rlk := keygen.GenRelinearizationKey(sk, 1)                            // s^2 -> s이므로, maxDegree = 1
 	rtks := keygen.GenRotationKeysForRotations([]int{1, 2, 3}, false, sk) // 1, 2, 3 rotation에 대한 키 생성
 
 	// Evaluator를 만듭니다.

@@ -12,3 +12,8 @@ func Pow(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, k int) *rlwe.Ciphertext
 // Coefficients are in ascending order; for example,
 // {1, 2, 3} means 1 + 2x + 3x^2.
 func EvalPoly(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, coeffs []float64) *rlwe.Ciphertext
+
+// Average returns the encrypted average of values packed in ct of given length.
+func Average(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, length int) *rlwe.Ciphertext
+
+// BONUS QUESTION: Are your implementation optimal?

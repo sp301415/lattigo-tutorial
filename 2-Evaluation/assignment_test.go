@@ -26,7 +26,7 @@ func TestAssignment2(t *testing.T) {
 
 		ptOut := ckks.NewDecryptor(params, sk).DecryptNew(ctOut)
 		outCmplx := encoder.Decode(ptOut, params.LogSlots())
-		out := make([]int, 4)
+		out := make([]int, 3)
 		for i := range out {
 			out[i] = int(math.Round(real(outCmplx[i])))
 		}
@@ -41,12 +41,24 @@ func TestAssignment2(t *testing.T) {
 
 		ptOut := ckks.NewDecryptor(params, sk).DecryptNew(ctOut)
 		outCmplx := encoder.Decode(ptOut, params.LogSlots())
-		out := make([]int, 4)
+		out := make([]int, 3)
 		for i := range out {
 			out[i] = int(math.Round(real(outCmplx[i])))
 		}
 
 		if !reflect.DeepEqual(out, []int{6, 11, 18}) {
+			t.Fail()
+		}
+	})
+
+	t.Run("Average", func(t *testing.T) {
+		ctOut := Average(evaluator, ct, 3)
+
+		ptOut := ckks.NewDecryptor(params, sk).DecryptNew(ctOut)
+		outCmplx := encoder.Decode(ptOut, params.LogSlots())
+		out := int(math.Round(real(outCmplx[0])))
+
+		if out != 2 {
 			t.Fail()
 		}
 	})

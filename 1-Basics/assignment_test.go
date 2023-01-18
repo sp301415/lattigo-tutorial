@@ -20,7 +20,7 @@ func TestAssignment1(t *testing.T) {
 
 	// Check if length < 0
 	mOut2 := DecryptAndDecode(params, sk, ct, -1)
-	if !(reflect.DeepEqual(m, mOut2[:len(m)]) && len(m) == params.Slots()) {
+	if !(reflect.DeepEqual(m, mOut2[:len(m)]) && len(mOut2) == params.Slots()) {
 		t.Fail()
 	}
 }

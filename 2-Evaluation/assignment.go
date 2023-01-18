@@ -14,6 +14,8 @@ func Pow(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, k int) *rlwe.Ciphertext
 func EvalPoly(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, coeffs []float64) *rlwe.Ciphertext
 
 // Average returns the encrypted average of values packed in ct of given length.
+//
+// You may assume that evaluator has rotation keys from 1 to length.
 func Average(evaluator ckks.Evaluator, ct *rlwe.Ciphertext, length int) *rlwe.Ciphertext
 
 // BONUS QUESTION: Are your implementation optimal?
